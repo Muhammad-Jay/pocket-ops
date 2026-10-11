@@ -1,0 +1,65 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+
+[project]
+name = "pocketops"
+version = "0.1.0"
+description = "A small task-management command-line application."
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = []
+
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "pytest-cov",
+    "pytest-watch",
+    "ruff",
+    "mypy",
+]
+
+
+[project.scripts]
+pocketops = "pocketops.cli:main"
+
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["pocketops*"]
+
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra -v"
+
+
+[tool.ruff]
+line-length = 88
+target-version = "py312"
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+
+
+[tool.coverage.run]
+source = ["src/pocketops"]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "raise AssertionError",
+    "raise NotImplementedError",
+    "if __name__ == .__main__.:",
+]
+
+
+[tool.mypy]
+python_version = "3.12"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = false
