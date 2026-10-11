@@ -1,6 +1,6 @@
 from  typing import Protocol
 
-from dto.task import Task
+from pocketops.dto.task import Task
 
 class StoreProvider(Protocol):
 

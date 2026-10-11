@@ -1,8 +1,8 @@
 from dataclasses import dataclass, field
 from pathlib import Path
 
-from dto.task import Task
-from store.config import StoreProvider
+from pocketops.dto.task import Task
+from pocketops.store.config import StoreProvider
 
 class TaskStore:
     def __init__(self, provider: StoreProvider):
